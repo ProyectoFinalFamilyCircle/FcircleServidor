@@ -24,7 +24,7 @@ import modelo.ModeloLocalizacion;
 import modelo.ModeloPersona;
 import modelo.ModeloRecado;
 
-//import com.google.gson.Gson;
+import com.google.gson.Gson;
 
 /**
  *
@@ -119,40 +119,40 @@ public class ControlAndroid extends HttpServlet {
                 List<Localizacion> lista = ModeloLocalizacion.get();
                 response.setContentType("application/json;charset=UTF-8");
             
-                /*Gson gson= new Gson();
+                Gson gson= new Gson();
                 PrintWriter pw=response.getWriter();
                 pw.println( gson.toJson(lista));
-                pw.close();*/
+                pw.close();
 
             }else if(target.equals("amigo") && op.equals("select") && action.equals("view")){
                                 
                 List<Amigo> lista = ModeloAmigo.get();
                 response.setContentType("application/json;charset=UTF-8");
             
-                /*Gson gson= new Gson();
+                Gson gson= new Gson();
                 PrintWriter pw=response.getWriter();
                 pw.println( gson.toJson(lista));
-                pw.close();*/
+                pw.close();
 
             }else if(target.equals("persona") && op.equals("select") && action.equals("view")){
                                 
                 List<Persona> lista = ModeloPersona.get();
                 response.setContentType("application/json;charset=UTF-8");
             
-                /*Gson gson= new Gson();
+                Gson gson= new Gson();
                 PrintWriter pw=response.getWriter();
                 pw.println( gson.toJson(lista));
-                pw.close();*/
+                pw.close();
 
             }else if(target.equals("recado") && op.equals("select") && action.equals("view")){
                                 
                 List<Recado> lista = ModeloRecado.get();
                 response.setContentType("application/json;charset=UTF-8");
             
-                /*Gson gson= new Gson();
+                Gson gson= new Gson();
                 PrintWriter pw=response.getWriter();
                 pw.println( gson.toJson(lista));
-                pw.close();*/
+                pw.close();
 
             }
         }
