@@ -75,38 +75,22 @@ public class ControlAndroid extends HttpServlet {
                     out.println("{\"r\":1 OK Insert)}");
                 }
             }
-            
+        
         /* DELETE */
             
         }else if(op.equals("delete")){
             
             if(target.equals("localizacion") && op.equals("delete") && action.equals("op")){
-                Localizacion localizacion = getLocalizacion(request);
+                Localizacion localizacion = getLocalizacionDelete(request);
                 error = false;
                 ModeloLocalizacion.delete(localizacion.getId()+"");
-
-            }else if(target.equals("amigo") && op.equals("delete") && action.equals("op")){
-                Amigo amigo = getAmigo(request);
-                error = false;
-                ModeloAmigo.delete(amigo.getId()+"");
-
-            }else if(target.equals("recado") && op.equals("delete") && action.equals("op")){
-                Recado recado = getRecado(request);
-                error = false;
-                ModeloRecado.delete(recado.getId()+"");
-
-            }else if(target.equals("persona") && op.equals("delete") && action.equals("op")){
-                Persona persona = getPersona(request);
-                error = false;
-                ModeloPersona.delete(persona.getId()+"");
-
             }
-
+            
             try (PrintWriter out = response.getWriter()) {
                 if (error) {
                     out.println("{\"r\":0 Error Delete)}");
                 } else {
-                    out.println("{\"r\":1 OK Insert)}");
+                    out.println("{\"r\":1 OK Delete)}");
                 }
             }
             
@@ -172,6 +156,14 @@ public class ControlAndroid extends HttpServlet {
         return localizacion;
     }
 
+    private Localizacion getLocalizacionDelete(HttpServletRequest request){
+        Localizacion localizacion = new Localizacion();
+        localizacion.setId(Integer.parseInt(request.getParameter("id")));
+        localizacion.setUsuario(request.getParameter("usuario"));
+        localizacion.setLocalizacion(request.getParameter("localizacion"));
+        return localizacion;
+    }
+    
     private Persona getPersona(HttpServletRequest request){
         Persona persona = new Persona();
         persona.setNombre(request.getParameter("nombre"));
